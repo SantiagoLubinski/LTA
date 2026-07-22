@@ -34,8 +34,20 @@ if (heroSlides.length) {
     heroSlides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + 1) % heroSlides.length;
     heroSlides[currentSlide].classList.add('active');
-  }, 6000);
+  }, 10000);
 }
+
+// El hero ocupa exactamente el resto de la pantalla debajo del header,
+// para que al cargar la página solo se vea el Inicio.
+function sizeHero() {
+  const header = document.querySelector('.site-header');
+  const hero = document.querySelector('.hero');
+  if (header && hero) {
+    hero.style.minHeight = `calc(100vh - ${header.offsetHeight}px)`;
+  }
+}
+sizeHero();
+window.addEventListener('resize', sizeHero);
 
 // Scroll reveal: sections fade/slide in as they enter, fade out as they pass above
 const revealObserver = new IntersectionObserver((entries) => {

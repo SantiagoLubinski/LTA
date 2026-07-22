@@ -157,9 +157,13 @@ li { margin-bottom: 0.35em; }
 /* Hero */
 .hero {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: var(--white);
   text-align: center;
-  padding: 120px 24px 100px;
+  padding: 24px;
   overflow: hidden;
   isolation: isolate;
 }
@@ -265,6 +269,11 @@ li { margin-bottom: 0.35em; }
   margin: 0 auto 60px;
   color: var(--text-muted);
   font-size: 1.02rem;
+}
+
+.estudio-copy p {
+  text-align: justify;
+  hyphens: auto;
 }
 
 /* Socios */
@@ -393,6 +402,17 @@ li { margin-bottom: 0.35em; }
   letter-spacing: 0.02em;
 }
 
+.footer-address {
+  color: rgba(255,255,255,0.6);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.3);
+  transition: color 0.2s ease;
+}
+
+.footer-address:hover {
+  color: var(--white);
+}
+
 /* Scroll reveal */
 .reveal {
   opacity: 0;
@@ -500,6 +520,17 @@ li { margin-bottom: 0.35em; }
   display: flex;
   flex-direction: column;
   gap: 20px;
+  text-align: center;
+}
+
+.form-heading {
+  font-size: 1.3rem;
+  margin-bottom: 0.2em;
+}
+
+.form-subtext {
+  color: var(--text-muted);
+  margin: 0 0 0.4em;
 }
 
 .form-row {
@@ -534,7 +565,7 @@ li { margin-bottom: 0.35em; }
 }
 
 .contact-form .btn {
-  align-self: flex-start;
+  align-self: center;
   border: none;
   cursor: pointer;
 }
