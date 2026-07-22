@@ -20,11 +20,10 @@
     </a>
 
     <nav class="menu" id="menu">
-      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menuDropdown">
-        <span>Menú</span>
-        <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none">
-          <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menuDropdown" aria-label="Abrir menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </button>
       <ul class="menu-dropdown" id="menuDropdown">
         <li><a href="#inicio">Inicio</a></li>
@@ -40,6 +39,14 @@
 <main>
 
   <section id="inicio" class="hero">
+    <div class="hero-bg">
+      <div class="hero-slide active" style="background-image:url('images/bg-buenosaires.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/bg-energia.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/bg-oilgas.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/bg-negocios.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/bg-transacciones.jpg')"></div>
+      <div class="hero-overlay"></div>
+    </div>
     <div class="hero-inner">
       <p class="hero-mark">LTA</p>
       <h1>Lubinski &amp; Tagliabue<br>Abogados</h1>
@@ -50,13 +57,13 @@
 
   <section id="estudio" class="section">
     <div class="section-inner">
-      <h2 class="section-title">El Estudio</h2>
-      <div class="estudio-copy">
+      <h2 class="section-title reveal">El Estudio</h2>
+      <div class="estudio-copy reveal">
         <p>Somos un estudio dedicado íntegramente al derecho de los negocios. Acompañamos a empresas y a quienes las conducen en cada etapa de su actividad: desde la constitución y el gobierno societario hasta la operación regulada, la gestión de conflictos y la resolución de situaciones de crisis. Combinamos rigor técnico con sentido práctico del negocio, para que cada consulta se traduzca en una decisión que se pueda tomar.</p>
         <p>Nuestra escala es una ventaja. Cada asunto lo conduce de manera directa un abogado con experiencia, con tiempos de respuesta acotados y sin la dispersión de las grandes estructuras. Priorizamos la solución concreta por sobre la extensión del trámite y trabajamos para anticipar el riesgo antes de que se convierta en conflicto.</p>
       </div>
 
-      <div class="socios">
+      <div class="socios reveal">
         <div class="socio-card">
           <div class="socio-photo" aria-hidden="true"><span>AL</span></div>
           <h3>Alejandro I. Lubinski</h3>
@@ -73,59 +80,75 @@
 
   <section id="areas" class="section section-alt">
     <div class="section-inner">
-      <h2 class="section-title">Áreas de práctica</h2>
-      <div class="areas-grid">
+      <h2 class="section-title reveal">Áreas de práctica</h2>
+      <p class="areas-hint reveal">Hacé clic en un área para ver el detalle.</p>
+      <div class="areas-grid reveal">
 
-        <div class="area-card">
+        <button class="area-card" type="button" data-area="societario">
           <h3>Societario y corporativo</h3>
           <ul>
             <li>Derecho societario y gobierno corporativo</li>
             <li>Derecho corporativo</li>
             <li>Conflictos societarios</li>
           </ul>
-        </div>
+        </button>
 
-        <div class="area-card">
-          <h3>Regulatorio y competencia</h3>
+        <button class="area-card" type="button" data-area="regulatorio">
+          <h3>Regulatorio</h3>
           <ul>
             <li>Derecho administrativo y regulatorio</li>
             <li>Regulatorio CNV</li>
             <li>Regulatorio BCRA</li>
+          </ul>
+        </button>
+
+        <button class="area-card" type="button" data-area="competencia">
+          <h3>Competencia y consumo</h3>
+          <ul>
             <li>Defensa de la competencia</li>
             <li>Defensa del consumidor</li>
           </ul>
-        </div>
+        </button>
 
-        <div class="area-card">
+        <button class="area-card" type="button" data-area="compliance">
           <h3>Compliance y penal económico</h3>
           <ul>
             <li>Compliance UIF / PLA-FT</li>
             <li>Penal económico</li>
           </ul>
-        </div>
+        </button>
 
-        <div class="area-card">
+        <button class="area-card" type="button" data-area="energia">
           <h3>Energía y recursos naturales</h3>
           <ul>
             <li>Energía (electricidad)</li>
             <li>Petróleo y gas</li>
           </ul>
-        </div>
+        </button>
 
-        <div class="area-card">
+        <button class="area-card" type="button" data-area="litigios">
           <h3>Litigios y situaciones de crisis</h3>
           <ul>
             <li>Litigios</li>
             <li>Reestructuración de deuda e insolvencia</li>
           </ul>
-        </div>
+        </button>
 
       </div>
     </div>
   </section>
 
+  <div class="modal-backdrop" id="areaModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
+      <h3 id="modalTitle"></h3>
+      <p class="modal-general" id="modalGeneral"></p>
+      <dl class="modal-items" id="modalItems"></dl>
+    </div>
+  </div>
+
   <section id="carreras" class="section">
-    <div class="section-inner section-inner-narrow">
+    <div class="section-inner section-inner-narrow reveal">
       <h2 class="section-title">Oportunidades laborales</h2>
       <p>Si estás buscando desarrollarte profesionalmente en un estudio donde cada abogado tiene un rol directo y de peso en los asuntos que lleva, escribinos y contanos sobre vos.</p>
       <a href="mailto:contacto@lta-abogados.com?subject=Oportunidades%20laborales" class="btn btn-solid">Enviar CV</a>
@@ -134,8 +157,8 @@
 
   <section id="contacto" class="section section-alt">
     <div class="section-inner">
-      <h2 class="section-title">Contacto</h2>
-      <div class="contacto-grid">
+      <h2 class="section-title reveal">Contacto</h2>
+      <div class="contacto-grid reveal">
         <div class="contacto-card">
           <h3>Alejandro I. Lubinski</h3>
           <p><a href="mailto:PENDIENTE@lta-abogados.com">[email pendiente]</a></p>
@@ -146,12 +169,24 @@
           <p><a href="mailto:PENDIENTE@lta-abogados.com">[email pendiente]</a></p>
           <p>[teléfono pendiente]</p>
         </div>
-        <div class="contacto-card">
-          <h3>Oficina</h3>
-          <p>[dirección pendiente]</p>
-          <p>[horario de atención pendiente]</p>
-        </div>
       </div>
+
+      <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/FORM_ID_PENDIENTE" method="POST">
+        <div class="form-row">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid">Enviar mensaje</button>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
     </div>
   </section>
 
