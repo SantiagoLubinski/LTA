@@ -494,6 +494,8 @@ li { margin-bottom: 0.35em; }
 .modal-general {
   color: var(--text-muted);
   margin-bottom: 1.6em;
+  text-align: justify;
+  hyphens: auto;
 }
 
 .modal-items {
@@ -511,6 +513,8 @@ li { margin-bottom: 0.35em; }
   margin: 0.3em 0 0;
   color: var(--text-muted);
   font-size: 0.94rem;
+  text-align: justify;
+  hyphens: auto;
 }
 
 /* Contact form */
